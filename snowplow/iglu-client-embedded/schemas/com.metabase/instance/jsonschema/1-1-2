@@ -100,6 +100,10 @@
           "description": "Should we enable advanced configuration for Google Sign-In authentication?",
           "type": "boolean"
         },
+        "sso_oauth":  {
+          "description": "Should we enable advanced configuration for OAuth Sign-In authentication?",
+          "type": "boolean"
+        },
         "advanced_config": {
           "description": "DEPRECATED: Should we enable knobs and levers for more complex orgs (granular caching controls, allow-lists email domains for notifications, more in the future)?",
           "type": "boolean"

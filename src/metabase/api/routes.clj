@@ -19,6 +19,7 @@
    [metabase.api.field]
    [metabase.api.geojson]
    [metabase.api.google]
+   [metabase.api.oauth]
    [metabase.api.ldap]
    [metabase.api.login-history]
    [metabase.api.macros :as api.macros]
@@ -73,6 +74,7 @@
          metabase.api.field/keep-me
          metabase.api.geojson/keep-me
          metabase.api.google/keep-me
+         metabase.api.oauth/keep-me
          metabase.api.ldap/keep-me
          metabase.api.login-history/keep-me
          metabase.api.native-query-snippet/keep-me
@@ -154,6 +156,7 @@
    "/field"                (+auth 'metabase.api.field)
    "/geojson"              'metabase.api.geojson
    "/google"               (+auth 'metabase.api.google)
+   "/oauth"                (+auth 'metabase.api.oauth)
    "/ldap"                 (+auth 'metabase.api.ldap)
    "/login-history"        (+auth 'metabase.api.login-history)
    "/model-index"          (+auth 'metabase.indexed-entities.api)

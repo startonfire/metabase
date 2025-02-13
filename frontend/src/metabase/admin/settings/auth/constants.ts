@@ -21,6 +21,34 @@ export const GOOGLE_SCHEMA = Yup.object({
     .default(null),
 });
 
+export const OAUTH_SCHEMA = Yup.object({
+  "oauth-enabled": Yup.boolean().nullable().default(false),
+  "oauth-provider-name": Yup.string()
+    .nullable()
+    .default(null)
+    .when(["oauth-enabled", "$oauth-provider-name"], REQUIRED_SCHEMA),
+  "oauth-auth-url": Yup.string()
+    .nullable()
+    .default(null)
+    .when(["oauth-enabled", "$oauth-auth-url"], REQUIRED_SCHEMA),
+  "oauth-token-url": Yup.string()
+    .nullable()
+    .default(null)
+    .when(["oauth-enabled", "$oauth-token-url"], REQUIRED_SCHEMA),
+  "oauth-client-id": Yup.string()
+    .nullable()
+    .default(null)
+    .when(["oauth-enabled", "$oauth-client-id"], REQUIRED_SCHEMA),
+  "oauth-client-secret": Yup.string()
+    .nullable()
+    .default(null)
+    .when(["oauth-enabled", "$oauth-client-secret"], REQUIRED_SCHEMA),
+  "oauth-public-key": Yup.string()
+    .nullable()
+    .default(null)
+    .when(["oauth-enabled", "$oauth-public-key"], REQUIRED_SCHEMA),
+});
+
 export const LDAP_SCHEMA = Yup.object({
   ...PLUGIN_LDAP_FORM_FIELDS.formFieldsSchemas,
   "ldap-enabled": Yup.boolean().nullable().default(false),

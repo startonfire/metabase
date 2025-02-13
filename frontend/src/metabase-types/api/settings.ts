@@ -203,6 +203,7 @@ export const tokenFeatures = [
   "sandboxes",
   "scim",
   "sso_google",
+  "sso_oauth",
   "sso_jwt",
   "sso_ldap",
   "sso_saml",
@@ -300,6 +301,7 @@ interface AdminSettings {
   "query-caching-ttl-ratio": number;
   "google-auth-auto-create-accounts-domain": string | null;
   "google-auth-configured": boolean;
+  "oauth-configured": boolean;
   "jwt-configured"?: boolean;
   "jwt-enabled"?: boolean;
   "premium-embedding-token": string | null;
@@ -360,6 +362,13 @@ interface PublicSettings {
   engines: Record<string, Engine>;
   "google-auth-client-id": string | null;
   "google-auth-enabled": boolean;
+  "oauth-provider-name": string | null;
+  "oauth-auth-url": string | null;
+  "oauth-token-url": string | null;
+  "oauth-client-id": string | null;
+  "oauth-client-secret": string | null;
+  "oauth-public-key": string | null;
+  "oauth-enabled": boolean;
   "has-user-setup": boolean;
   "help-link": HelpLinkSetting;
   "help-link-custom-destination": string;

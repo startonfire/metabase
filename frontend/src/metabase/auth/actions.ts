@@ -90,6 +90,27 @@ export const loginGoogle = createAsyncThunk(
   },
 );
 
+interface LoginOAuthPayload {
+  code: string;
+  state?: string;
+}
+
+export const LOGIN_OAUTH = "metabase/auth/LOGIN_OAUTH";
+export const loginOAuth = createAsyncThunk(
+  LOGIN_OAUTH,
+  async ({ code, state }: LoginOAuthPayload, { dispatch, rejectWithValue }) => {
+    try {
+      await SessionApi.createWithOAuth({ code: code, state: state });
+      await dispatch(refreshSession()).unwrap();
+      if (!isSmallScreen()) {
+        dispatch(openNavbar());
+      }
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  },
+);
+
 export const LOGOUT = "metabase/auth/LOGOUT";
 export const logout = createAsyncThunk(
   LOGOUT,

@@ -38,3 +38,27 @@ export const getSiteLocale = (state: State) => {
 export const getGoogleClientId = (state: State) => {
   return getSetting(state, "google-auth-client-id");
 };
+
+export const getOAuthProviderName = (state: State) => {
+  return getSetting(state, "oauth-provider-name");
+};
+
+export const getOAuthAuthUrl = (state: State) => {
+  return getSetting(state, "oauth-auth-url");
+};
+
+export const getOAuthTokenUrl = (state: State) => {
+  return getSetting(state, "oauth-token-url");
+};
+
+export const getOAuthClientId = (state: State) => {
+  return getSetting(state, "oauth-client-id");
+};
+
+export const getOAuthClientSecret = (state: State) => {
+  return getSetting(state, "oauth-client-secret");
+};
+
+export const getOAuthPublicKey = (state: State) => {
+  return getSetting(state, "oauth-public-key");
+};

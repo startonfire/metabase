@@ -10,6 +10,7 @@
    [metabase.config :as config]
    [metabase.events :as events]
    [metabase.integrations.google :as google]
+   [metabase.integrations.oauth :as oauth]
    [metabase.integrations.ldap :as ldap]
    [metabase.models.session :as session]
    [metabase.models.setting :as setting :refer [defsetting]]
@@ -282,6 +283,37 @@
     (http-401-on-error
       (throttle/with-throttling [(login-throttlers :ip-address) (request/ip-address request)]
         (let [user (google/do-google-auth request)
+              {session-uuid :id, :as session} (session/create-session! :sso user (request/device-info request))
+              response {:id (str session-uuid)}
+              user (t2/select-one [:model/User :id :is_active], :email (:email user))]
+          (if (and user (:is_active user))
+            (request/set-session-cookies request
+                                         response
+                                         session
+                                         (t/zoned-date-time (t/zone-id "GMT")))
+            (throw (ex-info (str disabled-account-message)
+                            {:status-code 401
+                             :errors      {:account disabled-account-snippet}}))))))))
+
+(api.macros/defendpoint :post "/oauth"
+  "Login with OAuth."
+  [_route-params
+   _query-params
+   _body :- [:map
+             [:code ms/NonBlankString]
+             [:state ms/NonBlankString]]
+   request]
+  (when-not (and (oauth/oauth-token-url)
+               (oauth/oauth-client-id)
+               (oauth/oauth-client-secret)
+               (oauth/oauth-public-key))
+    (throw (ex-info "OAuth is disabled." {:status-code 400})))
+  ;; Verify the code is valid with OAuth
+  (if throttling-disabled?
+    (oauth/do-oauth request)
+    (http-401-on-error
+      (throttle/with-throttling [(login-throttlers :ip-address) (request/ip-address request)]
+        (let [user (oauth/do-oauth request)
               {session-uuid :id, :as session} (session/create-session! :sso user (request/device-info request))
               response {:id (str session-uuid)}
               user (t2/select-one [:model/User :id :is_active], :email (:email user))]

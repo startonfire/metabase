@@ -17,6 +17,7 @@
    [metabase.eid-translation :as eid-translation]
    [metabase.embed.settings :as embed.settings]
    [metabase.integrations.google :as google]
+   [metabase.integrations.oauth :as oauth]
    [metabase.integrations.slack :as slack]
    [metabase.models.humanization :as humanization]
    [metabase.models.interface :as mi]
@@ -791,6 +792,9 @@
    {:name      :sso-google
     :available true
     :enabled   (google/google-auth-configured)}
+   {:name      :sso-oauth
+    :available true
+    :enabled   (oauth/oauth-configured)}
    {:name      :sso-ldap
     :available true
     :enabled   (public-settings/ldap-enabled?)}

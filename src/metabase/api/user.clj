@@ -11,6 +11,7 @@
    [metabase.config :as config]
    [metabase.events :as events]
    [metabase.integrations.google :as google]
+   [metabase.integrations.oauth :as oauth]
    [metabase.models.collection :as collection]
    [metabase.models.interface :as mi]
    [metabase.models.session :as session]
@@ -406,6 +407,7 @@
    ;; We should not allow a regular user to change their email address if they are a google/ldap user
    (and
     (not (= :google sso_source))
+    (not (= :oauth sso_source))
     (not (= :ldap sso_source)))))
 
 (defn- valid-name-update?
@@ -485,6 +487,7 @@
                ;; (see metabase#3323)
                :sso_source   (case (:sso_source existing-user)
                                :google (when (google/google-auth-enabled) :google)
+                               :oauth  (when (oauth/oauth-enabled) :oauth)
                                :ldap   (when (api.ldap/ldap-enabled) :ldap)
                                (:sso_source existing-user))})
   ;; now return the existing user whether they were originally active or not

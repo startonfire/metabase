@@ -269,7 +269,9 @@ import pencil_lines_component from "./pencil_lines.svg?component";
 import pencil_lines_source from "./pencil_lines.svg?source";
 import permissions_limited_component from "./permissions_limited.svg?component";
 import permissions_limited_source from "./permissions_limited.svg?source";
+import oauth_component from "./person.svg?component";
 import person_component from "./person.svg?component";
+import oauth_source from "./person.svg?source";
 import person_source from "./person.svg?source";
 import pie_component from "./pie.svg?component";
 import pie_source from "./pie.svg?source";
@@ -750,6 +752,10 @@ export const Icons = {
   google: {
     component: google_component,
     source: google_source,
+  },
+  oauth: {
+    component: oauth_component,
+    source: oauth_source,
   },
   history: {
     component: history_component,

@@ -116,6 +116,10 @@
   "Should we enable advanced configuration for Google Sign-In authentication?"
   :sso-google)
 
+(define-premium-feature enable-sso-oauth?
+  "Should we enable advanced configuration for OAuth Sign-In authentication?"
+  :sso-oauth)
+
 (define-premium-feature enable-scim?
   "Should we enable user/group provisioning via SCIM?"
   :scim)
@@ -126,7 +130,8 @@
   (or (enable-sso-jwt?)
       (enable-sso-saml?)
       (enable-sso-ldap?)
-      (enable-sso-google?)))
+      (enable-sso-google?)
+      (enable-sso-oauth?)))
 
 (define-premium-feature enable-session-timeout-config?
   "Should we enable configuring session timeouts?"

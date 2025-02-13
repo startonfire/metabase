@@ -9,6 +9,7 @@ import { ForgotPassword } from "metabase/auth/components/ForgotPassword";
 import { Login } from "metabase/auth/components/Login";
 import { Logout } from "metabase/auth/components/Logout";
 import { ResetPassword } from "metabase/auth/components/ResetPassword";
+import { OAuthCallback } from "metabase/auth/containers/OAuthCallback";
 import {
   BrowseDatabases,
   BrowseMetrics,
@@ -108,6 +109,11 @@ export const getRoutes = store => {
           <Route component={IsNotAuthenticated}>
             <Route path="login" title={t`Login`} component={Login} />
             <Route path="login/:provider" title={t`Login`} component={Login} />
+            <Route
+              path="oauth/callback"
+              title={t`OAuth Login`}
+              component={OAuthCallback}
+            />
           </Route>
           <Route path="logout" component={Logout} />
           <Route path="forgot_password" component={ForgotPassword} />
