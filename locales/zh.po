@@ -9799,11 +9799,11 @@ msgstr "toucanSightings"
 #: frontend/src/metabase/admin/settings/auth/components/GoogleAuthForm/GoogleAuthForm.tsx:83
 #: metabase/driver/common.clj:250
 msgid "Client ID"
-msgstr "客户ID"
+msgstr "客户端ID"
 
 #: frontend/src/metabase/entities/databases/big-query-fields.js:108
 msgid "Client Secret"
-msgstr "客户秘密"
+msgstr "客户端密钥"
 
 #: frontend/src/metabase/entities/databases/big-query-fields.js:114
 msgid "Auth Code"
@@ -38362,3 +38362,133 @@ msgctxt "{0} is the dashboard name the question currently has dashcards in"
 msgid "Do you still want this question to appear in {0}?"
 msgstr ""
 
+#: metabase/integrations/oauth.clj:111
+msgid "Is OAuth Sign-In configured?"
+msgstr "是否配置了 OAuth 登录？"
+
+#: metabase/integrations/oauth.clj:33
+msgid "Name of OAuth Provider."
+msgstr "OAuth 提供商的名称"
+
+#: metabase/integrations/oauth.clj:128
+msgid "OAuth Sign-In is not configured. Please set the Client ID first."
+msgstr "OAuth 登录未配置。请先设置 Client ID"
+
+#: metabase/integrations/oauth.clj:46
+msgid "Authorize URL for OAuth Sign-In."
+msgstr "用于 OAuth 登录的授权 URL"
+
+#: metabase/integrations/oauth.clj:163
+msgid "Email not found in token."
+msgstr "Email 不存在"
+
+#: metabase/integrations/oauth.clj:98
+msgid "JWT Public Key for OAuth Sign-In."
+msgstr "用于 OAuth 登录后解析 JWT 的公钥"
+
+#: metabase/integrations/oauth.clj:85
+msgid "Client Secret for OAuth Sign-In."
+msgstr "用于 OAuth 登录的 Client Secret"
+
+#: metabase/integrations/oauth.clj:72
+msgid "Client ID for OAuth Sign-In."
+msgstr "用于 OAuth 登录的 Client ID"
+
+#: metabase/integrations/oauth.clj:159
+msgid "Invalid OAuth token"
+msgstr "无效的 OAuth 令牌"
+
+#: metabase/integrations/oauth.clj:59
+msgid "Token URL for OAuth Sign-In."
+msgstr "用于 OAuth 登录获取 Access Token 的接口地址"
+
+#: metabase/integrations/oauth.clj:30
+msgid ""
+"You'll need an administrator to create a Metabase account before you can use "
+"OAuth to log in."
+msgstr "你需要一个管理员来创建Metabase账户，然后才能使用 OAuth 登录。"
+
+#: metabase/integrations/oauth.clj:117
+msgid "Is OAuth Sign-in currently enabled?"
+msgstr "目前是否启用了 OAuth?"
+
+#: metabase/integrations/oauth.clj:156
+msgid "Invalid OAuth token status"
+msgstr "无效的 OAuth 令牌状态"
+
+#: frontend/src/metabase/admin/settings/auth/components/OAuthForm/OAuthForm.tsx:31
+msgid "OAuth Sign-In"
+msgstr "OAuth 登录"
+
+#: frontend/src/metabase/admin/settings/auth/components/OAuthForm/OAuthForm.tsx:67
+#: frontend/src/metabase/admin/settings/auth/containers/OAuthCard/OAuthCard.tsx:18
+msgid "Sign in with OAuth"
+msgstr "使用 OAuth 登录"
+
+#: frontend/src/metabase/admin/settings/auth/components/OAuthForm/OAuthForm.tsx:69
+#: frontend/src/metabase/admin/settings/auth/containers/OAuthCard/OAuthCard.tsx:19
+msgid ""
+"Allows users with existing Metabase accounts to login with a OAuth account "
+"that matches their email address."
+msgstr "允许拥有现有Metabase账户的用户在Metabase用户名和密码的基础上，用与他们的电子邮件地址相匹配的 OAuth 账户登录。"
+
+#: frontend/src/metabase/admin/settings/auth/components/OAuthForm/OAuthForm.tsx:73
+msgid "Provider Name"
+msgstr "供应商名称"
+
+#: frontend/src/metabase/admin/settings/auth/components/OAuthForm/OAuthForm.tsx:79
+msgid "Authorize URL"
+msgstr "授权 URL"
+
+#: frontend/src/metabase/admin/settings/auth/components/OAuthForm/OAuthForm.tsx:85
+msgid "Token URL"
+msgstr "令牌 URL"
+
+#: frontend/src/metabase/admin/settings/auth/components/OAuthForm/OAuthForm.tsx:92
+msgid "your client id"
+msgstr "你的 Client ID"
+
+#: frontend/src/metabase/admin/settings/auth/components/OAuthForm/OAuthForm.tsx:97
+msgid "Client Secret"
+msgstr "客户端密钥"
+
+#: frontend/src/metabase/admin/settings/auth/components/OAuthForm/OAuthForm.tsx:98
+msgid "your client secret"
+msgstr "你的 Client ID"
+
+#: frontend/src/metabase/admin/settings/auth/components/OAuthForm/OAuthForm.tsx:103
+msgid "JWT Public Key"
+msgstr "JWT 公钥"
+
+#: frontend/src/metabase/admin/settings/auth/components/OAuthForm/OAuthForm.tsx:104
+msgid ""
+"-----BEGIN PUBLIC KEY-----\n"
+"your public key\n"
+"-----END PUBLIC KEY-----"
+msgstr ""
+"-----BEGIN PUBLIC KEY-----\n"
+"你的公钥\n"
+"-----END PUBLIC KEY-----"
+
+#: frontend/src/metabase/auth/components/OAuthButton/OAuthButton.tsx:38
+#: frontend/src/metabase/auth/components/OAuthButton/OAuthButton.tsx:42
+#, javascript-format
+msgid "Sign in with {0}"
+msgstr "使用{0}登录"
+
+#: frontend/src/metabase/auth/containers/OAuthCallback.tsx:54
+#, javascript-format
+msgid "Signing in to {0} ..."
+msgstr "正在登录到{0}..."
+
+#: frontend/src/metabase/admin/people/components/PeopleListRow.jsx:69
+msgid "Signed up via OAuth"
+msgstr "使用 OAuth 注册"
+
+#: frontend/src/metabase/admin/settings/auth/containers/OAuthCard/OAuthCard.tsx:17
+msgid "OAuth Sign-in"
+msgstr "OAuth 登录"
+
+#: frontend/src/metabase/routes.jsx:114
+msgid "OAuth Login"
+msgstr "OAuth 登录"

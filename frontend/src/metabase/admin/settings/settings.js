@@ -9,6 +9,7 @@ import {
   EmailApi,
   GoogleApi,
   LdapApi,
+  OAuthApi,
   SamlApi,
   SettingsApi,
   SlackApi,
@@ -170,6 +171,19 @@ export const updateGoogleSettings = createThunkAction(
   function (settings) {
     return async function (dispatch) {
       const result = await GoogleApi.updateSettings(settings);
+      await dispatch(reloadSettings());
+      return result;
+    };
+  },
+);
+
+export const UPDATE_OAUTH_SETTINGS =
+  "metabase/admin/settings/UPDATE_OAUTH_SETTINGS";
+export const updateOAuthSettings = createThunkAction(
+  UPDATE_OAUTH_SETTINGS,
+  function (settings) {
+    return async function (dispatch) {
+      const result = await OAuthApi.updateSettings(settings);
       await dispatch(reloadSettings());
       return result;
     };

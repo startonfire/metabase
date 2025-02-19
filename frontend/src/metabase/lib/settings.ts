@@ -160,6 +160,13 @@ class MetabaseSettings {
   }
 
   /**
+   * @deprecated use getSetting(state, "oauth-enabled")
+   */
+  isOAuthEnabled() {
+    return this.get("oauth-enabled");
+  }
+
+  /**
    * @deprecated use getSetting(state, "ldap-enabled")
    */
   isLdapEnabled() {

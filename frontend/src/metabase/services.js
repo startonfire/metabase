@@ -271,6 +271,10 @@ export const GoogleApi = {
   updateSettings: PUT("/api/google/settings"),
 };
 
+export const OAuthApi = {
+  updateSettings: PUT("/api/oauth/settings"),
+};
+
 export const TimelineApi = {
   list: GET("/api/timeline"),
   listForCollection: GET("/api/timeline/collection/:collectionId"),
@@ -383,6 +387,7 @@ export const RevisionsApi = {
 export const SessionApi = {
   create: POST("/api/session"),
   createWithGoogleAuth: POST("/api/session/google_auth"),
+  createWithOAuth: POST("/api/session/oauth"),
   delete: DELETE("/api/session"),
   slo: POST("/auth/sso/logout"),
   properties: GET("/api/session/properties"),

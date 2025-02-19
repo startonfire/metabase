@@ -65,6 +65,11 @@ const PeopleListRow = ({
             <Icon name="google" />
           </Tooltip>
         ) : null}
+        {user.oauth ? (
+          <Tooltip tooltip={t`Signed up via OAuth`}>
+            <Icon name="oauth" />
+          </Tooltip>
+        ) : null}
         {user.ldap_auth ? (
           <Tooltip tooltip={t`Signed up via LDAP`}>
             <Icon name="ldap" />
