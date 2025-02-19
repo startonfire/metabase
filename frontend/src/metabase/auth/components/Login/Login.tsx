@@ -6,7 +6,12 @@ import type { AuthProvider } from "metabase/plugins/types";
 import { getApplicationName } from "metabase/selectors/whitelabel";
 import { Box } from "metabase/ui";
 
-import { getAuthProviders } from "../../selectors";
+import {
+  getAuthProviders,
+  getExternalAuthProviders,
+  getIsLdapEnabled,
+  getIsPasswordSigninHidden,
+} from "../../selectors";
 import { AuthLayout } from "../AuthLayout";
 
 interface LoginQueryString {
@@ -23,7 +28,19 @@ interface LoginProps {
 }
 
 export const Login = ({ params, location }: LoginProps): JSX.Element => {
-  const providers = useSelector(getAuthProviders);
+  let providers = useSelector(getAuthProviders);
+
+  const isPasswordSigninHidden = useSelector(getIsPasswordSigninHidden);
+  const isLdapEnabled = useSelector(getIsLdapEnabled);
+  const externalProviders = useSelector(getExternalAuthProviders);
+  if (
+    isPasswordSigninHidden &&
+    !isLdapEnabled &&
+    externalProviders?.length > 0
+  ) {
+    providers = externalProviders;
+  }
+
   const selection = getSelectedProvider(providers, params?.provider);
   const redirectUrl = location?.query?.redirect;
   const applicationName = useSelector(getApplicationName);

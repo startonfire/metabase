@@ -311,7 +311,13 @@ export const ADMIN_SETTINGS_SECTIONS = {
             ...tab,
             isActive: tab.key === "authentication",
           })),
-    settings: [], // added by plugins
+    settings: [
+      {
+        key: "password-signin-hidden",
+        display_name: t`Hide password signing in`,
+        type: "boolean",
+      },
+    ], // added by plugins
     adminOnly: true,
   },
   maps: {

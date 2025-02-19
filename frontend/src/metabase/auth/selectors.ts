@@ -39,8 +39,16 @@ export const getGoogleClientId = (state: State) => {
   return getSetting(state, "google-auth-client-id");
 };
 
+export const getIsPasswordSigninHidden = (state: State) => {
+  return getSetting(state, "password-signin-hidden");
+};
+
 export const getOAuthProviderName = (state: State) => {
   return getSetting(state, "oauth-provider-name");
+};
+
+export const getOAuthProviderNameHidden = (state: State) => {
+  return getSetting(state, "oauth-provider-name-hidden");
 };
 
 export const getOAuthAuthUrl = (state: State) => {

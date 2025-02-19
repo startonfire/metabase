@@ -362,7 +362,9 @@ interface PublicSettings {
   engines: Record<string, Engine>;
   "google-auth-client-id": string | null;
   "google-auth-enabled": boolean;
+  "password-signin-hidden": boolean;
   "oauth-provider-name": string | null;
+  "oauth-provider-name-hidden": boolean | null;
   "oauth-auth-url": string | null;
   "oauth-token-url": string | null;
   "oauth-client-id": string | null;

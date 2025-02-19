@@ -38,6 +38,19 @@
                     (setting/set-value-of-type! :string :oauth-provider-name nil)
                     (setting/set-value-of-type! :boolean :oauth-enabled false)))))
 
+(defsetting oauth-provider-name-hidden
+  (deferred-tru "Hides provider name on sign-in button?")
+  :encryption :no
+  :visibility :public
+  :type       :boolean
+  :audit      :getter
+  :setter     (fn [hidden]
+                (if (boolean hidden)
+                  (setting/set-value-of-type! :boolean :oauth-provider-name-hidden hidden)
+                  (do
+                    (setting/set-value-of-type! :boolean :oauth-provider-name-hidden false)
+                    (setting/set-value-of-type! :boolean :oauth-enabled false)))))
+
 (defsetting oauth-auth-url
   (deferred-tru "Authorize URL for OAuth Sign-In.")
   :encryption :when-encryption-key-set

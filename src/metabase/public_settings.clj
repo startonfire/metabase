@@ -45,6 +45,14 @@
     (binding [config/*disable-setting-cache* true]
       (application-name))))
 
+(defsetting password-signin-hidden
+  (deferred-tru "Hides button of Sign in with Password if other authentication providers are enabled")
+  :visibility :public
+  :type       :boolean
+  :encryption :no
+  :audit      :getter
+  :default    false)
+  
 (defn- google-auth-enabled? []
   (boolean (setting/get :google-auth-enabled)))
 

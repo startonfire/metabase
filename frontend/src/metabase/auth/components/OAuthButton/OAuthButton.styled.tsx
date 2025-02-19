@@ -32,7 +32,8 @@ export const CardExternalLink = styled(TextExternalLink)`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.75rem 1rem;
+  padding: 1rem 1.25rem;
+  margin: 0 0 0.75rem 0;
   background-color: var(--mb-color-bg-white);
   box-shadow: 0 3px 10px var(--mb-color-shadow);
   border-radius: 6px;

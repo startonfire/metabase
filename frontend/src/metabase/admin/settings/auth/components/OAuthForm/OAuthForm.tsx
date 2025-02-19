@@ -7,6 +7,7 @@ import FormErrorMessage from "metabase/core/components/FormErrorMessage";
 import FormInput from "metabase/core/components/FormInput";
 import FormSubmitButton from "metabase/core/components/FormSubmitButton";
 import FormTextArea from "metabase/core/components/FormTextArea";
+import FormToggle from "metabase/core/components/FormToggle";
 import { FormProvider } from "metabase/forms";
 import type { SettingDefinition, Settings } from "metabase-types/api";
 
@@ -20,6 +21,7 @@ import {
 
 const ENABLED_KEY = "oauth-enabled";
 const PROVIDER_NAME_KEY = "oauth-provider-name";
+const PROVIDER_NAME_HIDDEN_HEY = "oauth-provider-name-hidden";
 const AUTH_URL_KEY = "oauth-auth-url";
 const TOKEN_URL_KEY = "oauth-token-url";
 const CLIENT_ID_KEY = "oauth-client-id";
@@ -73,6 +75,12 @@ const OAuthSettingsForm = ({
             title={t`Provider Name`}
             placeholder={"User Center"}
             {...getFormFieldProps(settings[PROVIDER_NAME_KEY])}
+          />
+          <FormToggle
+            name={PROVIDER_NAME_HIDDEN_HEY}
+            title={t`Hides provider name`}
+            description={t`Hides provider name on sign-in button`}
+            {...getFormFieldProps(settings[PROVIDER_NAME_HIDDEN_HEY])}
           />
           <FormInput
             name={AUTH_URL_KEY}

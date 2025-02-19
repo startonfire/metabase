@@ -7,6 +7,7 @@ import {
   getOAuthAuthUrl,
   getOAuthClientId,
   getOAuthProviderName,
+  getOAuthProviderNameHidden,
   getSiteLocale,
 } from "../../selectors";
 
@@ -24,6 +25,7 @@ interface OAuthButtonProps {
 
 export const OAuthButton = ({ redirectUrl, isCard }: OAuthButtonProps) => {
   const providerName = useSelector(getOAuthProviderName);
+  const providerNameHidden = useSelector(getOAuthProviderNameHidden);
   const authUrl = useSelector(getOAuthAuthUrl);
   const clientId = useSelector(getOAuthClientId);
   const locale = useSelector(getSiteLocale);
@@ -35,7 +37,11 @@ export const OAuthButton = ({ redirectUrl, isCard }: OAuthButtonProps) => {
           target="_self"
           href={Urls.oauth(authUrl, clientId, Urls.oauthCallback(), locale)}
         >
-          <CardText>{t`Sign in with ${providerName || "OAuth"}`}</CardText>
+          <CardText>
+            {providerNameHidden
+              ? t`Sign in`
+              : t`Sign in with ${providerName || "OAuth"}`}
+          </CardText>
         </CardExternalLink>
       ) : (
         <TextLink to={Urls.login(redirectUrl)}>

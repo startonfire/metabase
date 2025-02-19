@@ -39,6 +39,7 @@ PLUGIN_ADMIN_SETTINGS_UPDATES.push(sections => ({
     component: OAuthSettingsForm,
     settings: [
       { key: "oauth-provider-name" },
+      { key: "oauth-provider-name-hidden" },
       { key: "oauth-auth-url" },
       { key: "oauth-token-url" },
       { key: "oauth-client-id" },
