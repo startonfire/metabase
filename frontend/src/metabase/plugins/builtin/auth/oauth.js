@@ -42,6 +42,7 @@ PLUGIN_ADMIN_SETTINGS_UPDATES.push(sections => ({
       { key: "oauth-provider-name-hidden" },
       { key: "oauth-auth-url" },
       { key: "oauth-token-url" },
+      { key: "oauth-logout-url" },
       { key: "oauth-client-id" },
       { key: "oauth-client-secret" },
       { key: "oauth-public-key" },

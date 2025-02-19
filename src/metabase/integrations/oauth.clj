@@ -65,7 +65,7 @@
                     (setting/set-value-of-type! :boolean :oauth-enabled false)))))
 
 (defsetting oauth-token-url
-  (deferred-tru "Token URL for OAuth Sign-In.")
+  (deferred-tru "Token API URL for OAuth Sign-In.")
   :encryption :when-encryption-key-set
   :visibility :public
   :audit      :getter
@@ -75,6 +75,19 @@
                     (setting/set-value-of-type! :string :oauth-token-url trimmed-token-url))
                   (do
                     (setting/set-value-of-type! :string :oauth-token-url nil)
+                    (setting/set-value-of-type! :boolean :oauth-enabled false)))))
+
+(defsetting oauth-logout-url
+  (deferred-tru "Logout API URL for OAuth Sign-In.")
+  :encryption :when-encryption-key-set
+  :visibility :public
+  :audit      :getter
+  :setter     (fn [logout-url]
+                (if (seq logout-url)
+                  (let [trimmed-logout-url (str/trim logout-url)]
+                    (setting/set-value-of-type! :string :oauth-logout-url trimmed-logout-url))
+                  (do
+                    (setting/set-value-of-type! :string :oauth-logout-url nil)
                     (setting/set-value-of-type! :boolean :oauth-enabled false)))))
 
 (defsetting oauth-client-id

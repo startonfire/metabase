@@ -223,6 +223,7 @@ export const createMockSettings = (
   "oauth-provider-name-hidden": false,
   "oauth-auth-url": null,
   "oauth-token-url": null,
+  "oauth-logout-url": null,
   "oauth-client-id": null,
   "oauth-client-secret": null,
   "oauth-public-key": null,

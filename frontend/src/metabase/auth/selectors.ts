@@ -59,6 +59,10 @@ export const getOAuthTokenUrl = (state: State) => {
   return getSetting(state, "oauth-token-url");
 };
 
+export const getOAuthLogoutUrl = (state: State) => {
+  return getSetting(state, "oauth-logout-url");
+};
+
 export const getOAuthClientId = (state: State) => {
   return getSetting(state, "oauth-client-id");
 };

@@ -24,6 +24,7 @@ const PROVIDER_NAME_KEY = "oauth-provider-name";
 const PROVIDER_NAME_HIDDEN_HEY = "oauth-provider-name-hidden";
 const AUTH_URL_KEY = "oauth-auth-url";
 const TOKEN_URL_KEY = "oauth-token-url";
+const LOGOUT_URL_KEY = "oauth-logout-url";
 const CLIENT_ID_KEY = "oauth-client-id";
 const CLIENT_SECRET_KEY = "oauth-client-secret";
 const PUBLIC_KEY_KEY = "oauth-public-key";
@@ -90,9 +91,15 @@ const OAuthSettingsForm = ({
           />
           <FormInput
             name={TOKEN_URL_KEY}
-            title={t`Token URL`}
+            title={t`Token API URL`}
             placeholder={"https://mycompany.com/api/login/oauth/access_token"}
             {...getFormFieldProps(settings[TOKEN_URL_KEY])}
+          />
+          <FormInput
+            name={LOGOUT_URL_KEY}
+            title={t`Logout API URL`}
+            placeholder={"https://mycompany.com/api/logout"}
+            {...getFormFieldProps(settings[LOGOUT_URL_KEY])}
           />
           <FormInput
             name={CLIENT_ID_KEY}

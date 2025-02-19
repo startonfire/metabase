@@ -367,6 +367,7 @@ interface PublicSettings {
   "oauth-provider-name-hidden": boolean | null;
   "oauth-auth-url": string | null;
   "oauth-token-url": string | null;
+  "oauth-logout-url": string | null;
   "oauth-client-id": string | null;
   "oauth-client-secret": string | null;
   "oauth-public-key": string | null;

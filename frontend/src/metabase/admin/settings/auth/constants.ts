@@ -39,6 +39,7 @@ export const OAUTH_SCHEMA = Yup.object({
     .nullable()
     .default(null)
     .when(["oauth-enabled", "$oauth-token-url"], REQUIRED_SCHEMA),
+  "oauth-logout-url": Yup.string().nullable().default(null),
   "oauth-client-id": Yup.string()
     .nullable()
     .default(null)

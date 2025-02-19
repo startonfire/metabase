@@ -132,6 +132,15 @@ export const logout = createAsyncThunk(
           window.location.href = samlLogoutUrl;
         }
       } else {
+        const isOAuthEnabled = getSetting(state, "oauth-enabled");
+        const oauthLogoutUrl = getSetting(state, "oauth-logout-url");
+        if (isOAuthEnabled && oauthLogoutUrl) {
+          fetch(oauthLogoutUrl, {
+            method: "GET",
+            credentials: "include",
+          }).catch(() => {});
+        }
+
         await deleteSession();
         dispatch(clearCurrentUser());
         await dispatch(refreshLocale()).unwrap();
