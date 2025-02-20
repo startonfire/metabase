@@ -132,13 +132,24 @@ export const logout = createAsyncThunk(
           window.location.href = samlLogoutUrl;
         }
       } else {
+        const loadWithIframe = (url: string) =>
+          new Promise<void>(resolve => {
+            const iframe = document.createElement("iframe");
+            iframe.style.display = "none";
+            iframe.src = url;
+
+            iframe.onload = () => {
+              document.body.removeChild(iframe);
+              resolve();
+            };
+
+            document.body.appendChild(iframe);
+          });
+
         const isOAuthEnabled = getSetting(state, "oauth-enabled");
         const oauthLogoutUrl = getSetting(state, "oauth-logout-url");
         if (isOAuthEnabled && oauthLogoutUrl) {
-          fetch(oauthLogoutUrl, {
-            method: "GET",
-            credentials: "include",
-          }).catch(() => {});
+          loadWithIframe(oauthLogoutUrl).catch(() => {});
         }
 
         await deleteSession();
