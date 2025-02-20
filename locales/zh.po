@@ -38424,6 +38424,10 @@ msgstr "目前是否启用了 OAuth?"
 msgid "Invalid OAuth token status"
 msgstr "无效的 OAuth 令牌状态"
 
+#: metabase/public_settings.clj:49
+msgid "Hides button of Sign in with Password if other authentication providers are enabled"
+msgstr "如果启用了其他认证提供商，就隐藏使用密码登录的按钮"
+
 #: frontend/src/metabase/admin/settings/auth/components/OAuthForm/OAuthForm.tsx:34
 msgid "OAuth Sign-In"
 msgstr "OAuth 登录"
@@ -38512,3 +38516,7 @@ msgstr "OAuth 登录"
 #: frontend/src/metabase/routes.jsx:114
 msgid "OAuth Login"
 msgstr "OAuth 登录"
+
+#: frontend/src/metabase/admin/settings/selectors/selectors.js:317
+msgid "Hide password signing in"
+msgstr "隐藏密码登录按钮"

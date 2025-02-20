@@ -149,7 +149,7 @@ export const logout = createAsyncThunk(
         const isOAuthEnabled = getSetting(state, "oauth-enabled");
         const oauthLogoutUrl = getSetting(state, "oauth-logout-url");
         if (isOAuthEnabled && oauthLogoutUrl) {
-          loadWithIframe(oauthLogoutUrl).catch(() => {});
+          await loadWithIframe(oauthLogoutUrl).catch(() => {});
         }
 
         await deleteSession();
