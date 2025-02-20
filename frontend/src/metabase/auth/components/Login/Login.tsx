@@ -34,6 +34,7 @@ export const Login = ({ params, location }: LoginProps): JSX.Element => {
   const isLdapEnabled = useSelector(getIsLdapEnabled);
   const externalProviders = useSelector(getExternalAuthProviders);
   if (
+    params?.provider !== "password" &&
     isPasswordSigninHidden &&
     !isLdapEnabled &&
     externalProviders?.length > 0
